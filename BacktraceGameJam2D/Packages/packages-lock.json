@@ -142,7 +142,7 @@
       }
     },
     "io.backtrace.unity": {
-      "version": "file:D:/D-Drive Files/Downloads/backtrace-unity-3.7.1/backtrace-unity-3.7.1",
+      "version": "file:C:/backtrace-unity-3.7.1",
       "depth": 0,
       "source": "local",
       "dependencies": {}
