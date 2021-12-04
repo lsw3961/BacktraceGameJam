@@ -10,10 +10,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float speedY;
 
-   // [SerializeField]
-   // private float gravity;
+    [SerializeField]
+    private float gravity;
 
-    private Vector3 rightMove;
+    [SerializeField]
+    Rigidbody2D rgb;
+
+    private Vector3 xMove;
     private Vector3 leftMove;
     private Vector3 upMove;
     void Update()
@@ -23,40 +26,16 @@ public class PlayerMovement : MonoBehaviour
     //Movement Method
     private void Movement() 
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        #region KeyBinds
+        if (Input.GetAxis("Horizontal") != 0)
         {
-            rightMove = new Vector3(speedX, 0, 0);
-        }
-        else
-        {
-            rightMove = new Vector3(0, 0, 0);
-        }
-
-        if(Input.GetKey(KeyCode.LeftArrow))
-        {
-            leftMove = new Vector3(speedX * (-1), 0, 0);
-        }
-        else
-        {
-            leftMove = new Vector3(0, 0, 0);
+            rgb.velocity = new Vector2(speedX * Input.GetAxis("Horizontal"), rgb.velocity.y);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            upMove = new Vector3(0, speedY , 0);
+            rgb.AddForce(new Vector2(0, speedY));
         }
-        else
-        {
-            upMove = new Vector3(0, 0, 0);
-        }
-
-        Vector3 movement = new Vector3(rightMove.x + leftMove.x, upMove.y, 0);
-
-        movement *= Time.deltaTime;
-
-        transform.Translate(movement);
-
-        //Debug.Log("Right: " + rightMove.x);
-        //Debug.Log("Left: " + leftMove.x);
+        #endregion
     }
 }
