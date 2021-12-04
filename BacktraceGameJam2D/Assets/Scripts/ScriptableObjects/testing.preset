@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: names.Array.size
-    value: 6
+    value: 7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: names.Array.data[0]
@@ -54,12 +54,16 @@ Preset:
     value: testing3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: names.Array.data[6]
+    value: booltest
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: values.Array.size
-    value: 8
+    value: 9
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: values.Array.data[0]
-    value: awd
+    value: aasd
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: values.Array.data[1]
@@ -79,13 +83,17 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: values.Array.data[5]
-    value: awd
+    value: asd
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: values.Array.data[6]
-    value: awd
+    value: asd
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: values.Array.data[7]
-    value: awd
+    value: asd
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[8]
+    value: TRUE
     objectReference: {fileID: 0}

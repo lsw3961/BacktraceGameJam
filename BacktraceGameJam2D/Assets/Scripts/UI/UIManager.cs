@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] LayerMask notHitableLayers;
     GameObject currentObject;
     [SerializeField]
+    GameObject panel;
+    [SerializeField]
     GameObject prefabParent;
     [SerializeField]
     GameObject stringPrefab;
@@ -91,12 +93,14 @@ public class UIManager : MonoBehaviour
             if (hit.collider != null)
             {
                 //Debug.Log(hit.collider.gameObject);
+                panel.SetActive(true);
                 currentObject = hit.collider.gameObject;
                 createPrefabs = true;
                 return;
             }
             else
             {
+                panel.SetActive(false);
                 currentObject = null;
             }
         }
