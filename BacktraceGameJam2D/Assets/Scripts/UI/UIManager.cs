@@ -170,7 +170,8 @@ public class UIManager : MonoBehaviour
                     child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = ObjectInformation.names[nameCounter];
                     //gets the child of the child of child, and sets the placeholder text for that equal to the current value
                     child.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.GetComponent<TMP_Text>().text = ObjectInformation.values[i];
-                }
+                child.transform.GetChild(1).GetChild(0).GetChild(2).gameObject.GetComponent<TMP_Text>().text = ObjectInformation.values[i];
+            }
             nameCounter++;
 
             }
@@ -217,11 +218,15 @@ public class UIManager : MonoBehaviour
             }
             else if(prefabParent.transform.GetChild(i).gameObject.tag == "String")
             {
-
                  ObjectInformation.names[i] = child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text;
 
-
-                ObjectInformation.values[valueCounter] = child.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.GetComponent<TMP_Text>().text;
+                //Debug.Log(child.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.GetComponent<TMP_Text>().text);
+                if (child.transform.GetChild(1).GetChild(0).GetChild(2).gameObject.GetComponent<TMP_Text>().text == null)
+                {
+                    Debug.Log("Hit");
+                    child.transform.GetChild(1).GetChild(0).GetChild(2).gameObject.GetComponent<TMP_Text>().text = child.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.GetComponent<TMP_Text>().text;
+                }
+                ObjectInformation.values[valueCounter] = child.transform.GetChild(1).GetChild(0).GetChild(2).gameObject.GetComponent<TMP_Text>().text;
             }
             valueCounter++;
         }

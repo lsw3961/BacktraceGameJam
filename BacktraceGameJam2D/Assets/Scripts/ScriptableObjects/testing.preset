@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: testing
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 9c10f8fee538ac144936d6a7ae2181c0,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.size
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.data[0]
+    value: Name
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.data[1]
+    value: Gravity
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.data[2]
+    value: Speed
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.data[3]
+    value: testing1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.data[4]
+    value: testing2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: names.Array.data[5]
+    value: testing3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.size
+    value: 8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[0]
+    value: awd
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[1]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[2]
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[3]
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[4]
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[5]
+    value: awd
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[6]
+    value: awd
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: values.Array.data[7]
+    value: awd
+    objectReference: {fileID: 0}
