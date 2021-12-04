@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class InfoHolder : MonoBehaviour
 {
-    [SerializeField] PlayerInfo Information;
+    public PlayerInfo Information;
 }
