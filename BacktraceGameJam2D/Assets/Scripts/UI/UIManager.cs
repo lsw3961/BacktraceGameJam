@@ -120,7 +120,7 @@ public class UIManager : MonoBehaviour
                     prefabs.Add(child);
                     child.transform.parent = prefabParent.transform;
                     child.transform.localScale = prefabScale;
-                    child.transform.position = new Vector3(0, prefabParent.transform.position.y + (nameCounter*prefabDistance.y),child.transform.position.z);
+                    child.transform.localPosition = new Vector3(0, prefabParent.transform.position.y + (nameCounter*prefabDistance.y),child.transform.position.z);
     
                     //set the tag of each type
                     child.tag = "Bool";
@@ -198,11 +198,11 @@ public class UIManager : MonoBehaviour
                 //read in toggle 
                 if (child.transform.GetChild(1).gameObject.GetComponent<Toggle>().isOn)
                 {
-                    ObjectInformation.values[i] = "TRUE";
+                    ObjectInformation.values[valueCounter] = "TRUE";
                 }
                 else
                 {
-                    ObjectInformation.values[i] = "TRUE";
+                    ObjectInformation.values[valueCounter] = "TRUE";
                 }
             }
             else if (child.gameObject.tag == "Int")

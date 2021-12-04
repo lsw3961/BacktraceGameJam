@@ -19,6 +19,7 @@ MonoBehaviour:
   - testing1
   - testing2
   - testing3
+  - booltest
   values:
   - "\u200B"
   - 1
@@ -26,5 +27,6 @@ MonoBehaviour:
   - 1
   - 10
   - "\u200B"
+  - TRUE
   - "\u200B"
-  - "\u200B"
+  - TRUE

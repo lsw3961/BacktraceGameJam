@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 6095471914477062821}
   m_Layer: 0
   m_Name: StringPrefab
-  m_TagString: Untagged
+  m_TagString: String
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
