@@ -16,9 +16,15 @@ MonoBehaviour:
   - Name
   - Gravity
   - Speed
+  - testing1
+  - testing2
+  - testing3
   values:
   - Player
   - 1
   - 10
   - 1
   - 10
+  - testing
+  - testing
+  - testing

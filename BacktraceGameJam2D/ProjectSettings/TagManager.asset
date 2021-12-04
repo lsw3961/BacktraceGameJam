@@ -7,6 +7,9 @@ TagManager:
   - toggle
   - inputField
   - slider
+  - Bool
+  - Int
+  - String
   layers:
   - Default
   - TransparentFX

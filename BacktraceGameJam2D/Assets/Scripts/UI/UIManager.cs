@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] PlayerInfo ObjectInformation;
@@ -16,6 +17,13 @@ public class UIManager : MonoBehaviour
     GameObject intPrefab;
     [SerializeField]
     GameObject boolPrefab;
+    List<GameObject> prefabs = new List<GameObject>();
+
+
+    [SerializeField]
+    Vector3 prefabDistance;
+    [SerializeField]
+    Vector3 prefabScale;
 
     bool createPrefabs;
     // Start is called before the first frame update
@@ -27,47 +35,69 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         //check what the player has selected as the current object
         ObjectSelect();
-        if (currentObject != null) {
+        if (currentObject != null)
+        {
             //check if that object has an object information
             if (currentObject.GetComponent<InfoHolder>())
             {
-               // Debug.Log("has info");
+                // Debug.Log("has info");
                 ObjectInformation = currentObject.GetComponent<InfoHolder>().Information;
                 //Debug.Log("Create Prefabs outside of if "+createPrefabs);
-                if (createPrefabs) 
+                if (createPrefabs)
                 {
                     //Debug.Log("fire Once");
+                    //instatiate a new prefab for each name we have
                     CreatePrefabs();
                     createPrefabs = false;
                     //Debug.Log("Create Prefabs inside of if "+createPrefabs);
                 }
+                //update the information in the scriptable object
+                UpdateInformation();
 
-                //instatiate a new prefab for each name we have
             }
             //else
-                //Debug.Log("no Info");
+            //Debug.Log("no Info");
             //parse the list of values over from the scriptable object
+        }
+        else 
+        {
+            if (prefabs != null) 
+            {
+                if (prefabs.Count > 0)
+                {
+                    for (int i = 0; i < prefabs.Count; i++)
+                    {
+                        Destroy(prefabs[i]);
+                        prefabs.RemoveAt(i);
+                    }
+                }
+            }
+
         }
 
     }
     public void ObjectSelect()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
-            if (hit.collider != null )
+            if (hit.collider != null)
             {
                 //Debug.Log(hit.collider.gameObject);
                 currentObject = hit.collider.gameObject;
                 createPrefabs = true;
                 return;
+            }
+            else
+            {
+                currentObject = null;
             }
         }
     }
@@ -75,13 +105,25 @@ public class UIManager : MonoBehaviour
     public void CreatePrefabs() 
     {
         //Debug.Log(ObjectInformation.values.Count);
+
+        if (prefabs.Count >0) 
+        {
+            return;
+        }
+
         int nameCounter = 0;
             for (int i = 0; i < ObjectInformation.values.Count; i++)
             {
                 if (ObjectInformation.values[i].ToUpper() == "TRUE" || ObjectInformation.values[i].ToUpper() == "FALSE")
                 {
                     GameObject child = Instantiate(boolPrefab, prefabParent.transform);
+                    prefabs.Add(child);
                     child.transform.parent = prefabParent.transform;
+                    child.transform.localScale = prefabScale;
+                    child.transform.position = new Vector3(0, prefabParent.transform.position.y + (nameCounter*prefabDistance.y),child.transform.position.z);
+    
+                    //set the tag of each type
+                    child.tag = "Bool";
                     //set the name of the boolean
                     child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = ObjectInformation.names[nameCounter];
                     //set the toggle according to the cases
@@ -100,7 +142,12 @@ public class UIManager : MonoBehaviour
                     //instantiates the UI prfab
                     GameObject child = Instantiate(intPrefab, prefabParent.transform);
                     child.transform.parent = prefabParent.transform;
+                    prefabs.Add(child);
                     //set the text for the prefab
+                    child.transform.localScale = prefabScale;
+                    child.transform.localPosition = new Vector3(0, prefabParent.transform.position.y + (nameCounter * prefabDistance.y), child.transform.position.z);
+                    //set the tag
+                    child.tag = "Int";
                     //Debug.Log(i);
                     child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = ObjectInformation.names[nameCounter];
                     //set the min, max, and current for the prefab
@@ -114,6 +161,11 @@ public class UIManager : MonoBehaviour
                 {
                     GameObject child = Instantiate(stringPrefab, prefabParent.transform);
                     child.transform.parent = prefabParent.transform;
+                    //set the tag
+                    prefabs.Add(child);
+                    child.transform.localScale = prefabScale;
+                    child.transform.localPosition = new Vector3(0, prefabParent.transform.position.y + (nameCounter * prefabDistance.y), child.transform.position.z);
+                    child.tag = "String";
                     //set the name of the prefab
                     child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = ObjectInformation.names[nameCounter];
                     //gets the child of the child of child, and sets the placeholder text for that equal to the current value
@@ -122,8 +174,60 @@ public class UIManager : MonoBehaviour
             nameCounter++;
 
             }
-        
-       // Debug.Log("outside of for loop");
-            
+
+        // Debug.Log("outside of for loop");
+        float height = Mathf.Abs((prefabs[0].transform.position.y+300) - (prefabs[prefabs.Count - 1].transform.position.y + prefabs.Count*prefabDistance.y));
+        for (int i = 0;i<prefabs.Count;i++) 
+        {
+            prefabs[i].transform.position = new Vector3(prefabs[i].transform.position.x, prefabs[i].transform.position.y-prefabDistance.y, prefabs[i].transform.position.z);
+        }
+        prefabParent.GetComponent<RectTransform>().sizeDelta = new Vector2(prefabParent.GetComponent<RectTransform>().sizeDelta.x,height); 
+
+    }
+    public void UpdateInformation() 
+    {
+        int valueCounter = 0;
+        for (int i = 0; i < prefabParent.transform.childCount; i++)
+        {
+            GameObject child = prefabParent.transform.GetChild(i).gameObject;
+            if (child.gameObject.tag == "Bool")
+            {
+                //set the name of the boolean
+                ObjectInformation.names[i] = child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text;
+                //read in toggle 
+                if (child.transform.GetChild(1).gameObject.GetComponent<Toggle>().isOn)
+                {
+                    ObjectInformation.values[i] = "TRUE";
+                }
+                else
+                {
+                    ObjectInformation.values[i] = "TRUE";
+                }
+            }
+            else if (child.gameObject.tag == "Int")
+            {
+                 ObjectInformation.names[i] = child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text;
+                //set the max and the current for the prefab
+                ObjectInformation.values[valueCounter] = child.GetComponentInChildren<Slider>().value.ToString();
+                ObjectInformation.values[valueCounter+1] = child.GetComponentInChildren<Slider>().maxValue.ToString();
+                //increase value counter to stay in line with name
+                valueCounter++;
+
+
+            }
+            else if(prefabParent.transform.GetChild(i).gameObject.tag == "String")
+            {
+
+                 ObjectInformation.names[i] = child.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text;
+
+
+                ObjectInformation.values[valueCounter] = child.transform.GetChild(1).GetChild(0).GetChild(1).gameObject.GetComponent<TMP_Text>().text;
+            }
+            valueCounter++;
+        }
+    }
+    private bool IsMouseOverUI() 
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
