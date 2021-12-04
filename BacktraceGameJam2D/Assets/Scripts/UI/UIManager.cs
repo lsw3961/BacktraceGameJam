@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] PlayerInfo ObjectInformation;
-    [SerializeField] LayerMask notHitableLayers;
     GameObject currentObject;
     [SerializeField]
     GameObject panel;
@@ -206,7 +205,7 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
-                    ObjectInformation.values[valueCounter] = "TRUE";
+                    ObjectInformation.values[valueCounter] = "FALSE";
                 }
             }
             else if (child.gameObject.tag == "Int")
