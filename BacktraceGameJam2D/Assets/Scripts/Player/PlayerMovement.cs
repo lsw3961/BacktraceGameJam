@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Rigidbody2D rgb;
 
+    [SerializeField] PlayerInfo playerInfo;
+    [SerializeField] List<string> namesOfVariables;
     private bool inAir;
 
     #endregion
@@ -28,14 +30,16 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        ModGravity();
         Movement();
+        
     }
 
     #endregion
 
     #region Movement
     //Movement Method
-    private void Movement() 
+    private void Movement()
     {
         #region L/R Movement
 
@@ -54,9 +58,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Apply Cosmetic Downward Force
-        if(rgb.velocity.y <= 1)
+        if (rgb.velocity.y <= 1)
         {
-            rgb.AddForce(new Vector2(0, (speedY/cosmeticDownForceValue) * (-1)));
+            rgb.AddForce(new Vector2(0, (speedY / cosmeticDownForceValue) * (-1)));
         }
         #endregion
     }
@@ -81,6 +85,37 @@ public class PlayerMovement : MonoBehaviour
     {
         inAir = true;
     }
+
+    #endregion
+
+    #region ModValues   
+    private void ModGravity()
+    {
+        int nameCounter = 0;
+        for (int i = 0; i < playerInfo.values.Count; i++)
+        {
+            if (int.TryParse(playerInfo.values[i],out int result))
+            {
+                //mod gravity
+                if (playerInfo.names[nameCounter] == namesOfVariables[1])
+                {
+                    rgb.mass = int.Parse(playerInfo.values[i]);
+                    i++;
+                }
+                //mod speed
+                if (playerInfo.names[nameCounter] == namesOfVariables[2])
+                {
+                    //Debug.Log("hit");
+                    speedX = int.Parse(playerInfo.values[i]);
+                    i++;
+                }
+            }
+            nameCounter++;
+        }
+    }
+    private void ModScale(){}
+    private void ModSpeed(){}
+    private void ModName(){}
 
     #endregion
 }

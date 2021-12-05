@@ -20,7 +20,7 @@ MonoBehaviour:
   - gravity
   - speed
   values:
-  - FALSE
+  - TRUE
   - 1
   - 10
   - 1

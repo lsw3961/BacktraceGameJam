@@ -180,10 +180,10 @@ public class UIManager : MonoBehaviour
             }
 
         // Debug.Log("outside of for loop");
-        float height = Mathf.Abs((prefabs[0].transform.position.y+300) - (prefabs[prefabs.Count - 1].transform.position.y + prefabs.Count*prefabDistance.y));
+        float height = Mathf.Abs((prefabs[0].transform.position.y) - (prefabs[prefabs.Count - 1].transform.position.y - prefabs.Count*prefabDistance.y));
         for (int i = 0;i<prefabs.Count;i++) 
         {
-            prefabs[i].transform.position = new Vector3(prefabs[i].transform.position.x, prefabs[i].transform.position.y-prefabDistance.y, prefabs[i].transform.position.z);
+           // prefabs[i].transform.position = new Vector3(prefabs[i].transform.position.x, prefabs[i].transform.position.y-prefabDistance.y, prefabs[i].transform.position.z);
         }
         prefabParent.GetComponent<RectTransform>().sizeDelta = new Vector2(prefabParent.GetComponent<RectTransform>().sizeDelta.x,height); 
 
