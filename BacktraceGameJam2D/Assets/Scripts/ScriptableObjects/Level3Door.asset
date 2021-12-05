@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c10f8fee538ac144936d6a7ae2181c0, type: 3}
-  m_Name: PlayerInfo
+  m_Name: Level3Door
   m_EditorClassIdentifier: 
   names:
   - name
+  - isOpen
   - gravity
-  - speed
+  - scale
   values:
-  - Frogman
+  - "\u200B"
+  - FALSE
   - 0
   - 5
-  - 15
-  - 20
+  - 3
+  - 10
