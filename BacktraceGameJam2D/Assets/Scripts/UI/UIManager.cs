@@ -246,7 +246,6 @@ public class UIManager : MonoBehaviour
                 ObjectInformation.values[valueCounter+1] = child.GetComponentInChildren<Slider>().maxValue.ToString();
                 //increase value counter to stay in line with name
                 valueCounter++;
-                i++;
 
 
             }

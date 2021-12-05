@@ -17,7 +17,7 @@ MonoBehaviour:
   - gravity
   - speed
   values:
-  - "\u200B"
+  - Player
   - 1
   - 5
   - 5

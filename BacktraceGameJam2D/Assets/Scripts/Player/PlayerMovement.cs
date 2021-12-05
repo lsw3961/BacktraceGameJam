@@ -127,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     //Debug.Log("hit");
                     speedX = int.Parse(playerInfo.values[i]);
+                    Debug.Log("HIt");
                     i++;
                 }
             }
