@@ -156,7 +156,7 @@ public class UIManager : MonoBehaviour
                     //set the min, max, and current for the prefab
                     child.GetComponentInChildren<Slider>().value = result;
                     child.GetComponentInChildren<Slider>().maxValue = int.Parse(ObjectInformation.values[i + 1]);
-                    child.GetComponentInChildren<Slider>().minValue = 0;
+                    child.GetComponentInChildren<Slider>().minValue = -5;
                     //bounce i up an additional space to account for the double values
                     i++;
                 }

@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
                 //mod gravity
                 if (playerInfo.names[nameCounter] == namesOfVariables[1])
                 {
-                    rgb.mass = int.Parse(playerInfo.values[i]);
+                    rgb.gravityScale = int.Parse(playerInfo.values[i]);
                     i++;
                 }
                 //mod speed
