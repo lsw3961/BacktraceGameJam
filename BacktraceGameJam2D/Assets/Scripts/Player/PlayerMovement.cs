@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] List<string> namesOfVariables;
     private bool inAir;
 
+    [SerializeField] Animator anim;
     #endregion
 
     #region Start/Update
@@ -46,7 +47,26 @@ public class PlayerMovement : MonoBehaviour
         //Left + Right Movement
         if (Input.GetAxis("Horizontal") != 0)
         {
+            anim.SetBool("idle", false);
             rgb.velocity = new Vector2(speedX * Input.GetAxis("Horizontal"), rgb.velocity.y);
+            if (Input.GetAxis("Horizontal") >= 0)
+            {
+                anim.SetBool("forwards", true);
+                anim.SetBool("backwards", false);
+
+            }
+            else if (Input.GetAxis("Horizontal") <= 0)
+            {
+                anim.SetBool("backwards", true);
+                anim.SetBool("forwards", false);
+
+            }
+        }
+        else
+        {
+            anim.SetBool("idle", true);
+            anim.SetBool("forwards", false);
+            anim.SetBool("backwards", false);
         }
         #endregion
 

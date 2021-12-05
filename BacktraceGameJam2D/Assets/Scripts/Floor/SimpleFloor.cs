@@ -15,7 +15,7 @@ public class SimpleFloor : MonoBehaviour
     {
         for (int i = 0; i < floorInfo.names.Count; i++)
         {
-            Debug.Log("hit");
+           // Debug.Log("hit");
             if (floorInfo.names[i] == nameForActive)
             {
 
