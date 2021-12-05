@@ -17,8 +17,8 @@ MonoBehaviour:
   - gravity
   - speed
   values:
-  - TRUE
+  - "\u200B"
   - 1
   - 5
-  - 30
-  - 30
+  - 5
+  - 20

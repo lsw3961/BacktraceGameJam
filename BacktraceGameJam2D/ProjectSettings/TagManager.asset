@@ -10,6 +10,7 @@ TagManager:
   - Bool
   - Int
   - String
+  - ground
   layers:
   - Default
   - TransparentFX

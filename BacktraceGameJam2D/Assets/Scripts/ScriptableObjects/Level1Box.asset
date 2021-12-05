@@ -15,5 +15,5 @@ MonoBehaviour:
   names:
   - gravity
   values:
-  - 0
+  - 1
   - 5
