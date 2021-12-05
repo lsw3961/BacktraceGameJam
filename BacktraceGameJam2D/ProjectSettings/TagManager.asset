@@ -10,6 +10,7 @@ TagManager:
   - Bool
   - Int
   - String
+  - GameMusic
   layers:
   - Default
   - TransparentFX
