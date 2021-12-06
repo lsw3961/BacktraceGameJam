@@ -18,7 +18,7 @@ MonoBehaviour:
   - gravity
   - scale
   values:
-  - "\u200B"
+  - Door
   - FALSE
   - 0
   - 5

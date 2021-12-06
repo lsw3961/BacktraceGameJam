@@ -17,7 +17,7 @@ MonoBehaviour:
   - gravity
   - speed
   values:
-  - Frogman
+  - Player
   - 0
   - 5
   - 15
