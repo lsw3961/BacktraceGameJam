@@ -32,8 +32,8 @@ public class StartupScript : MonoBehaviour
         try
         {
             //code written as a tester the evening before the game jam, This code will have no impact on the actual game and is only used as a tester
-            //int zero = 0;
-            //Debug.Log(100 / zero);
+            int zero = 0;
+            Debug.Log(100 / zero);
             // throw an exception here
         }
         catch (Exception exception)
