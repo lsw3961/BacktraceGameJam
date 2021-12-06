@@ -9,15 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 0a88074279a960d4489c76808dd98697
   - enabled: 1
+    path: Assets/Scenes/Narrative1.unity
+    guid: 5577c9dd8d4db034eb2855365b62042a
+  - enabled: 1
     path: Assets/Scenes/TutorialLevel.unity
     guid: 68c6955ebeea6034fbfa01e25ab81bc2
+  - enabled: 1
+    path: Assets/Scenes/Narrative2.unity
+    guid: a8f5031c5ecb76c40ab2a2757a5b0e30
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 3ad0e31e9fd39c449959d5b9eef77ab5
   - enabled: 1
+    path: Assets/Scenes/Narrative3.unity
+    guid: fe75434a30cbaf944acf0356b0dae3b7
+  - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 1e0f18dd6571fa048bec619460e4781f
   - enabled: 1
+    path: Assets/Scenes/Narrative4.unity
+    guid: 38261d3b2a2b64745ad8e265f785a1de
+  - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 9027275189535964cbace3ea95466ee6
+  - enabled: 1
+    path: Assets/Scenes/WINGAME.unity
+    guid: e79f1f98944cc1644b5bae50fe4ae502
   m_configObjects: {}
