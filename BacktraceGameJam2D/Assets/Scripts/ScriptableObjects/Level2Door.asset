@@ -14,20 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   names:
   - isOpen
-  - scaleX
-  - scaleY
-  - scaleZ
-  - gravity
-  - speed
   values:
-  - TRUE
-  - 1
-  - 10
-  - 1
-  - 10
-  - 1
-  - 10
-  - 1
-  - 10
-  - 1
-  - 10
+  - FALSE

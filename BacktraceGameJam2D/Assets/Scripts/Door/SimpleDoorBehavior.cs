@@ -16,7 +16,11 @@ public class SimpleDoorBehavior : MonoBehaviour
             {
                 if (doorInfo.values[i] == "TRUE") 
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    if (collision.gameObject.tag == "Player") 
+                    {
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    }
+
                 }
 
             }
